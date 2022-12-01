@@ -1,0 +1,89 @@
+{
+	"hud_title_text": {
+		"type": "stack_panel",
+		"size": [
+			"100%cm",
+			"100%c"
+		],
+		"anchor_from": "right_middle",
+		"anchor_to": "right_middle",
+		"alpha": 1,
+		"controls": [
+			{
+				"sidebar": {
+					"type": "panel",
+					"size": [
+						"100%c",
+						"100%c"
+					],
+					"offset": [
+						0,
+						25
+					],
+					"controls": [
+						{
+							"title_background": {
+								"type": "image",
+								"alpha": 1,
+								"size": [
+									105,
+									176
+								],
+								"offset": [
+									0,
+									0
+								],
+								"texture": "textures/ui/title_background",
+								"controls": [
+									{
+										"sidebarlogo": {
+											"type": "image",
+											"texture": "textures/ui/sidebar_logo",
+											"anchor_from": "top_middle",
+											"anchor_to": "top_middle",
+											"size": [
+												80,
+												62.5
+											],
+											"offset": [
+												0,
+												0.25
+											],
+											"layer": 50,
+											"alpha": 2
+										}
+									},
+									{
+										"title": {
+											"size": [
+												150,
+												159
+											],
+											"font_type": "Ariel",
+											"type": "label",
+											"text": "$title_text",
+											"anchor_from": "bottom_middle",
+											"anchor_to": "bottom_middle",
+											"color": "$tool_tip_text",
+											"text_alignment": "left",
+											"offset": [
+												26,
+												27
+											],
+											"layer": 1,
+											"shadow": true,
+											"localize": false,
+											"font_scale_factor": 0.7,
+											"alpha": 2
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"orientation": "vertical"
+	}
+}

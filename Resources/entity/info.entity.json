@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:info",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/info"
+			},
+			"geometry": {
+				"default": "geometry.info"
+			},
+			"animations": {
+				"idle": "animation.info.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle", {
+					"idle": "query.modified_move_speed"}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#a41ee7",
+				"overlay_color": "#fffa18"
+			}
+		}
+	}
+}

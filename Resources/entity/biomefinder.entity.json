@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:biomefinder",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/biomefinder"
+			},
+			"geometry": {
+				"default": "geometry.biomefinder"
+			},
+			"animations": {
+				"idle": "animation.biomefinder.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle", {
+					"idle": "query.modified_move_speed"}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#39e71e",
+				"overlay_color": "#1869ff"
+			}
+		}
+	}
+}

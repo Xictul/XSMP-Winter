@@ -1,0 +1,32 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": { 
+        "xsmp.npcs.hohoho": {
+            "category": "neutral",
+			"sounds": ["sounds/custom-npcs/hohoho"]
+        },
+		"xsmp.npcs.orbcharge": {
+			"category": "neutral",
+			"sounds": ["sounds/custom-npcs/orbcharge"]
+		},
+		"xsmp.npcs.laugh": {
+			"category": "neutral",
+			"sounds": [
+				{"load_on_low_memory": true, "name": "sounds/custom-npcs/laugh1"},
+				{"load_on_low_memory": true, "name": "sounds/custom-npcs/laugh2"}
+			]
+		},
+		"xsmp.misc.paper": {
+			"category": "neutral",
+			"sounds": [
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper1"},
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper2"},
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper3"},
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper4"},
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper5"},
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper6"},
+				{"load_on_low_memory": true, "name": "sounds/custom-misc/paper7"}
+			]
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+  "resource_pack_name": "XSMP Winter Edition",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "witch_hat": {
+      "textures": "textures/items/witch_hat"
+    },
+	  "coin": {
+	    "textures": "textures/items/coin"
+	  },
+    "crown": {
+      "textures": "textures/items/crown"
+    },
+    "top_hat": {
+      "textures": "textures/items/top_hat"
+    },
+    "cake_hat": {
+      "textures": "textures/items/cake_hat"
+    },
+    "shroom_hat": {
+      "textures": "textures/items/shroom_hat"
+    },
+    "gui": {
+      "textures": "textures/items/gui"
+    }
+  }
+}

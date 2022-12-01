@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:pvparena",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/pvparena"
+			},
+			"geometry": {
+				"default": "geometry.pvparena"
+			},
+			"animations": {
+				"idle": "animation.pvparena.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle", {
+					"idle": "query.modified_move_speed"}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#e7681e",
+				"overlay_color": "#ff2f18"
+			}
+		}
+	}
+}

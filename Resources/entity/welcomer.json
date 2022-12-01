@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:welcomer",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/welcomer"
+			},
+			"geometry": {
+				"default": "geometry.welcomer"
+			},
+			"animations": {
+				"idle": "animation.welcomer.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle", {
+					"idle": "query.modified_move_speed"}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#1ea4e7",
+				"overlay_color": "#1871ff"
+			}
+		}
+	}
+}

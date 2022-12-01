@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:santa",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/santa"
+			},
+			"geometry": {
+				"default": "geometry.santa"
+			},
+			"animations": {
+				"idle": "animation.santa.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle", {
+					"idle": "query.modified_move_speed"}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#e71e1e",
+				"overlay_color": "#fffa18"
+			}
+		}
+	}
+}

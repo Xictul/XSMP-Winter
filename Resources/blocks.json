@@ -1,0 +1,14 @@
+{
+  	"waterlily": {
+    	"textures" : "waterlily",
+    	"blockshape" : "waterlily"
+  	},
+  	"frame" : { 
+		"blockshape" : "invisible", 
+		"sound": "itemframe"
+  	},
+	"glow_frame" : { 
+		"blockshape" : "invisible", 
+		"sound": "itemframe"
+	}
+}

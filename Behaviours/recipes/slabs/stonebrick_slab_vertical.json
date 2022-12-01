@@ -1,0 +1,1 @@
+{"format_version":"1.12","minecraft:recipe_shaped":{"description":{"identifier":"fxnt:stonebrick_slab_vertical"},"tags":["crafting_table"],"priority":0,"pattern":["#","#","#"],"key":{"#":{"item":"minecraft:stonebrick","data":0}},"result":{"item":"fxnt:stonebrick_slab_vertical","data":0,"count":6}}}

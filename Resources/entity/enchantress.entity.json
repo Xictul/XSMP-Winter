@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:enchantress",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/enchantress"
+			},
+			"geometry": {
+				"default": "geometry.enchantress"
+			},
+			"animations": {
+				"idle": "animation.enchantress.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle", {
+					"idle": "query.modified_move_speed"}
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#e7501e",
+				"overlay_color": "#ffec18"
+			}
+		}
+	}
+}

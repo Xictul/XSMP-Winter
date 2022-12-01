@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "xsmp:shroomling",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/shroomling"
+			},
+			"geometry": {
+				"default": "geometry.shroomling"
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"base_color": "#d90000",
+				"overlay_color": "#ffffff"
+			},
+			"animations": {
+				"idle": "animation.shroomling.idle"
+			},
+			"scripts": {
+				"animate": [
+					"idle",{
+					"idle": "query.modified_move_speed"}
+				]
+			}
+		}
+	}
+}

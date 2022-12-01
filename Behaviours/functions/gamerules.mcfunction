@@ -1,0 +1,4 @@
+gamerule commandblockoutput false
+gamerule doinsomnia false
+gamerule tntexplodes false
+gamerule showbordereffect false

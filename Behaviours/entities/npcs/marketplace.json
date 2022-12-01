@@ -1,0 +1,73 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xsmp:marketplace",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false
+			},
+			"minecraft:push_through": {
+				"value": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			}
+		},
+		"component_groups": {
+			"xsmp:skin_1": {
+				"minecraft:mark_variant": {
+					"value": 0
+				}
+			},
+			"xsmp:skin_2": {
+				"minecraft:mark_variant": {
+					"value": 1
+				}
+			},
+			"xsmp:skin_3": {
+				"minecraft:mark_variant": {
+					"value": 2
+				}
+			},
+			"xsmp:skin_4": {
+				"minecraft:mark_variant": {
+					"value": 3
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 1,
+						"add": { "component_groups": ["xsmp:skin_1"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["xsmp:skin_2"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["xsmp:skin_3"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["xsmp:skin_4"] }
+					}
+				]
+			}
+		}
+	}
+}

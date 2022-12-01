@@ -1,0 +1,1 @@
+{"format_version":"1.12","minecraft:recipe_shaped":{"description":{"identifier":"fxnt:planks_dark_oak_slab_vertical"},"tags":["crafting_table"],"priority":0,"pattern":["#","#","#"],"key":{"#":{"item":"minecraft:planks","data":5}},"result":{"item":"fxnt:planks_dark_oak_slab_vertical","data":0,"count":6}}}
