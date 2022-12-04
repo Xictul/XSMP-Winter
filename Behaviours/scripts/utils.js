@@ -1,3 +1,5 @@
+import { system, world, Entity } from '@minecraft/server'
+
 // Bans a player permanently
 
 export function banPlayer(player, reason) {
@@ -18,8 +20,6 @@ export function banPlayer(player, reason) {
 
 // Tick Timeout
 
-import { system, world, Entity } from '@minecraft/server'
-
 export class tickTimeout {
     /**
      * Create a tick timeout
@@ -32,13 +32,13 @@ export class tickTimeout {
         /**@private */
         this.currentTick = 0
         
-        const tick = () => {
-            if (ticks === -1) return
+        const schedule = system.runSchedule(() => {
+            if (ticks === -1) system.clearRunSchedule(schedule)
             if (this.currentTick++ >= ticks) {
-                return callback()
+                system.clearRunSchedule(schedule), callback()
             }
-        }
-        system.runSchedule(() => {tick})
+        })
+
     }
     getDelay() {
         return this.ticks

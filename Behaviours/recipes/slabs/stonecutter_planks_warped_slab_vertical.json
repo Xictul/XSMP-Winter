@@ -1,1 +1,0 @@
-{"format_version":"1.12","minecraft:recipe_shapeless":{"description":{"identifier":"fxnt:stonecutter_planks_warped_slab_vertical"},"tags":["stonecutter"],"priority":0,"ingredients":[{"item":"minecraft:warped_planks","data":0}],"result":{"item":"fxnt:planks_warped_slab_vertical","data":0,"count":2}}}

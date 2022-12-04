@@ -1,1 +1,0 @@
-{"format_version":"1.12","minecraft:recipe_shaped":{"description":{"identifier":"fxnt:copper_weathered_slab_vertical"},"tags":["crafting_table"],"priority":0,"pattern":["#","#","#"],"key":{"#":{"item":"minecraft:weathered_copper","data":0}},"result":{"item":"fxnt:copper_weathered_slab_vertical","data":0,"count":6}}}

@@ -2,15 +2,15 @@
 	"format_version": 2,
 	"header": {
 		"name": "§bXSMP Behaviour Pack",
-		"description": "This pack was created for XSMP Winter Edition. Have fun!",
-		"uuid": "99fc42d7-3e38-4f0e-acbd-8a0ef801d1d6",
+		"description": "This pack was created for XSMP Winter Edition. Have fun! [Indev Vers]",
+		"uuid": "b3202f72-a676-488d-8945-da362ae3106b",
 		"version": [1, 0, 0],
 		"min_engine_version": [1, 19, 0]
 	},
 	"modules": [
 		{
 			"type": "data",
-			"uuid": "a40c21da-4283-45d3-811c-ac73bb8313c0",
+			"uuid": "e0ba4f6e-78ce-44b9-82a9-1a81ecc2684a",
 			"version": [1, 0, 0]
 		},
 		{

@@ -1,1 +1,0 @@
-{"format_version":"1.12","minecraft:recipe_shaped":{"description":{"identifier":"fxnt:planks_jungle_slab_vertical"},"tags":["crafting_table"],"priority":0,"pattern":["#","#","#"],"key":{"#":{"item":"minecraft:planks","data":3}},"result":{"item":"fxnt:planks_jungle_slab_vertical","data":0,"count":6}}}

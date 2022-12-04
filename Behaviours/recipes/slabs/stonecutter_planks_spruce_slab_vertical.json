@@ -1,1 +1,0 @@
-{"format_version":"1.12","minecraft:recipe_shapeless":{"description":{"identifier":"fxnt:stonecutter_planks_spruce_slab_vertical"},"tags":["stonecutter"],"priority":0,"ingredients":[{"item":"minecraft:planks","data":1}],"result":{"item":"fxnt:planks_spruce_slab_vertical","data":0,"count":2}}}

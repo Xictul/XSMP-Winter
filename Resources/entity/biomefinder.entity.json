@@ -17,8 +17,7 @@
 			},
 			"scripts": {
 				"animate": [
-					"idle", {
-					"idle": "query.modified_move_speed"}
+					"idle", {"idle": "query.modified_move_speed"}
 				]
 			},
 			"render_controllers": ["controller.render.default"],
