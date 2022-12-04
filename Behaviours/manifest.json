@@ -2,16 +2,16 @@
 	"format_version": 2,
 	"header": {
 		"name": "§bXSMP Behaviour Pack",
-		"description": "This pack was created for XSMP Winter Edition. Have fun! [Indev Vers]",
-		"uuid": "b3202f72-a676-488d-8945-da362ae3106b",
-		"version": [1, 0, 0],
-		"min_engine_version": [1, 19, 0]
+		"description": "This pack was created for XSMP Winter Edition. Have fun! [1.1.1]",
+		"uuid": "c6a1f0d4-010b-46eb-8265-855b7292e37d",
+		"version": [1, 1, 0],
+		"min_engine_version": [1, 19, 1]
 	},
 	"modules": [
 		{
 			"type": "data",
-			"uuid": "e0ba4f6e-78ce-44b9-82a9-1a81ecc2684a",
-			"version": [1, 0, 0]
+			"uuid": "f13d2586-3a60-46b0-9eee-c333fad27de4",
+			"version": [1, 1, 1]
 		},
 		{
 			"description": "Script that implements basic starter tests.",

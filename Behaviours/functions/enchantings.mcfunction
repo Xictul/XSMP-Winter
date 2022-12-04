@@ -1,5 +1,7 @@
 effect @a[tag=enchanting:speed1] speed 1 0 true
 effect @a[tag=enchanting:speed2] speed 1 1 true
+effect @a[tag=enchanting:strength1] speed 1 0 true
+effect @a[tag=enchanting:strength2] speed 1 1 true
 effect @a[tag=enchanting:jump1] jump_boost 1 0 true
 effect @a[tag=enchanting:jump2] jump_boost 1 1 true
 effect @a[tag=enchanting:resistance1] resistance 1 0 true
