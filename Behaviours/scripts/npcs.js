@@ -257,6 +257,8 @@ world.events.entityHit.subscribe(data => {
             gui.body('Where do you want to go?')
 
             const entities = Array.from(world.getDimension('overworld').getEntities({type: 'xsmp:marketplace', excludeTypes: 'minecraft:player'}))
+            if(!entities) return player.tell(`§8[§bXSMP§8] §fError! No markets in range. Please go to spawn first.`), player.playSound('note.bass')
+
             for (const ent of entities) {
 
                 const tags = ent.getTags().find(t => t.startsWith('market:'))
@@ -487,7 +489,7 @@ world.events.entityHit.subscribe(data => {
                 if(result.selection == 6) buy(player, 'Strength (I)', 'enchanting:strength1', 50)
                 if(result.selection == 7) buy(player, 'Strength (II)', 'enchanting:strength2', 60)
                 if(result.selection == 8) buy(player, 'Regeneration (I)', 'enchanting:regeneration1', 70)
-                if(result.selection == 9) buy(player, 'Regeneration (II)', 'enchanting:regeneration1', 80)
+                if(result.selection == 9) buy(player, 'Regeneration (II)', 'enchanting:regeneration2', 80)
                 if(result.selection == 10) buy(player, 'Haste (I)', 'enchanting:haste1', 90)
                 if(result.selection == 11) buy(player, 'Haste (II)', 'enchanting:haste2', 100)
             })

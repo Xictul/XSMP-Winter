@@ -4,7 +4,7 @@
 		"name": "§bXSMP Behaviour Pack",
 		"description": "This pack was created for XSMP Winter Edition. Have fun! [1.1.1]",
 		"uuid": "c6a1f0d4-010b-46eb-8265-855b7292e37d",
-		"version": [1, 1, 0],
+		"version": [1, 1, 1],
 		"min_engine_version": [1, 19, 1]
 	},
 	"modules": [

@@ -17,30 +17,31 @@ system.runSchedule(() => {
 
     const players = Array.from(world.getPlayers())
     for (const player of players) {
+        const staff = player.hasTag('staff')
 
 
         // Spawn Commands //
 
 
-        if(player.hasTag('staff')) return
-
         const gamemode = getGamemode(player)
+        const dimension = player.dimension.id
+        const inSpawn = player.hasTag('inSpawn')
         const x = Math.abs(player.location.x)
         const z = Math.abs(player.location.z)
 
-        if(player.dimension.id != 'minecraft:overworld') player.removeTag('inSpawn')
-        if(x > 500 || z > 500) player.removeTag('inSpawn')
-        if((player.dimension.id == 'minecraft:overworld') && (x < 500 || z < 500)) player.addTag('inSpawn')
+        if((x < 500 && z < 500) && dimension == 'minecraft:overworld') player.addTag('inSpawn')
+        else if((x > 500 || z > 500) && dimension == 'minecraft:overworld') player.removeTag('inSpawn')
+        else if(dimension != 'minecraft:overworld') player.removeTag('inSpawn')
 
-        if(gamemode == 'creative' && !player.hasTag('staff')) {
+        if(gamemode == 'creative') {
+            if(staff) return
             player.tell('§8[§bXSMP§8] §rYou are not allowed to be in creative mode.')
             player.playSound('note.bass')
             player.runCommandAsync('gamemode s')
-        } else if(gamemode == 'survival' && player.hasTag('inSpawn') && !player.hasTag('staff')) {
-            player.runCommandAsync('gamemode a') 
-        } if(gamemode == 'adventure' && !player.hasTag('inSpawn') && !player.hasTag('staff')) {
-            player.runCommandAsync('gamemode s') 
-        }
+        }       
+        
+        if(inSpawn && !staff && gamemode == 'survival') player.runCommandAsync('gamemode a')
+        if(!inSpawn && !staff && gamemode == 'adventure') player.runCommandAsync('gamemode s')
 
 
         // Anticrasher //

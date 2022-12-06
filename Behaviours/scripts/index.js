@@ -8,33 +8,12 @@
 //             -- XICTUL'S SURVIVAL MULTIPLAYER --
 //                     
 
-// Chat Stuff
-// import './chat/ranks'
-// import './chat/commands'
-
-// Server Stuff
-// import './systems/join'
-// import './systems/gui'
-// import './systems/mining'
-// import './systems/rewards'
-// import './systems/sidebar'
-// import './systems/enchantings'
-
-// Custom NPC Stuff
-// import './npcs/names'
-// import './npcs/santa'
-// import './npcs/market'
-// import './npcs/biomefinder'
-// import './npcs/enchantress'
-// import './npcs/welcomer'
-// import './npcs/pvparena'
-// import './npcs/info'
-
-// Possibly less lag?
+// Scripty Stuff
 import './anticheat'
 import './chat'
 import './npcs'
 import './server'
+import './names'
 
 // Stops Watchdog Error Crashes
 
