@@ -1,11 +1,6 @@
-import { world, system, InventoryComponentContainer, EnchantmentList, Location, Entity } from '@minecraft/server'
+import { world, EntityInventoryComponent, EnchantmentList, Location, Entity } from '@minecraft/server'
 import { ActionFormData, MessageFormData, ModalFormData } from '@minecraft/server-ui'
 import { getScore, tickTimeout } from './utils'
-
-/**
-* @type InventoryComponentContainer
-* @type EnchantmentList 
-*/
 
 world.events.beforeItemUse.subscribe(data => {
     const player = data.source;
@@ -17,7 +12,7 @@ world.events.beforeItemUse.subscribe(data => {
     .title('Server GUI')
     .button('Teleports', 'textures/guiicons/tps')
     .button('Settings', 'textures/guiicons/settings')
-    .button('Marketplace', 'textures/guiicons/market')
+    .button('Cosmetics', 'textures/guiicons/cosmetics')
     .button('Statistics', 'textures/guiicons/other')
 
     const tps = new ActionFormData()
@@ -204,42 +199,44 @@ world.events.beforeItemUse.subscribe(data => {
             })
         }
         if(result.selection == 2) {
-            const markets = []
 
-            const marketplace = new ActionFormData()
-            .title('Marketplace Teleports')
-            .body('Where do you want to go?')
+            const cosmetics = new ActionFormData()
+            .title('Cosmetics Shop')
+            .body('What would you like to buy?')
+            .button('Top Hat\n§6250 coins', 'textures/guiicons/top_hat')
+            .button('Cake Hat\n§6500 coins', 'textures/guiicons/cake_hat')
+            .button('Witch Hat\n§6750 coins', 'textures/guiicons/witch_hat')
+            .button('Crown Hat\n§61000 coins', 'textures/guiicons/crown_hat')
 
-            const entities = Array.from(world.getDimension('overworld').getEntities({type: 'xsmp:marketplace', excludeTypes: 'minecraft:player'}))
-            for (const ent of entities) {
-                const tags = ent.getTags().find(t => t.startsWith('market:'))
-
-                if(tags) {
-                    const coords = tags.split('*')[1].split(' facing ')[0].replaceAll('*', '')
-                    const facing = tags.split('*')[1].split(' facing ')[1]
-                    
-                    let name = tags.split('~')[1].split('*')[0]
-                    if(name.includes('§')) name = name.substring(2)
-    
-                    marketplace.button(name)
-    
-                    markets.push({
-                        name: name,
-                        coords: coords,
-                        facing: facing
-                    })
+            /**
+            * Buy a biome
+            * @param {Entity} target The target entity
+            * @param {string} itemId What hat is being bought
+            * @param {string} itemName The name of the hat
+            * @param {number} cost How expensive it is
+            */
+            function buy(target, itemId, itemName, cost) {
+                const coinCount = getScore('coin', target, true).valueOf()
+                if(coinCount >= cost) {
+                    target.tell(`§8[§bXSMP§8] §fBought ${itemName} for ${cost} coins.`)
+                    target.playSound('random.orb')
+                    target.runCommandAsync(`scoreboard players remove @s coin ${cost}`)
+                    target.runCommandAsync(`give @s ${itemId}`)
+                } else {
+                    target.tell(`§8[§bXSMP§8] §fYou cannot afford this! You need ${cost - coinCount} more coins.`)
+                    target.playSound('note.bass')
                 }
             }
 
-            player.playSound('random.pop', {pitch: 0.5}),
-            marketplace.show(player).then(result => {
-                if(result.selection == 0 || result.selection) {
-                    const coords = markets[result.selection.valueOf()].coords.split(' ')
-                    const facing = markets[result.selection.valueOf()].facing.split(' ')
+            player.playSound('random.pop', {pitch: 0.5})
 
-                    player.teleportFacing(new Location(+coords[0], +coords[1], +coords[2]), world.getDimension('overworld'), new Location(+facing[0], +facing[1], +facing[2]))
-                }
+            cosmetics.show(player).then(result => {
+                if(result.selection == 0) buy(player, 'xsmp:top_hat', 'Top Hat', 250)
+                if(result.selection == 1) buy(player, 'xsmp:cake_hat', 'Cake Hat', 500)
+                if(result.selection == 2) buy(player, 'xsmp:witch_hat', 'Witch Hat', 750)
+                if(result.selection == 3) buy(player, 'xsmp:crown', 'Crown Hat', 1000)
             })
+
         }
         if(result.selection == 3) {
 
@@ -299,22 +296,31 @@ world.events.blockBreak.subscribe(data => {
         'minecraft:diamond_ore',
         'minecraft:ancient_debris',
         'minecraft:emerald_ore',
-        'minecraft:gold_ore'
+        'minecraft:gold_ore',
+        'minecraft:deepslate_diamond_ore',
+        'minecraft:deepslate_ancient_debris',
+        'minecraft:deepslate_emerald_ore',
+        'minecraft:deepslate_gold_ore'
     ]
 
-    const weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const date = new Date();
-    const day = weekday[date.getDay()];
-    const block = data.brokenBlockPermutation.type.id;
-    const player = data.player;
+    /**
+    * @type EntityInventoryComponent
+    * @type EnchantmentList 
+    */
+
+    const weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    const date = new Date()
+    const day = weekday[date.getDay()]
+    const block = data.brokenBlockPermutation.type.id
+    const player = data.player
     const { selectedSlot } = player 
     const mainhand = player.getComponent('inventory').container.getItem(selectedSlot)
 
     if(mainhand == undefined) {
         if(day == 'Monday') if(miningMondays.includes(block)) {
             player.runCommandAsync(`scoreboard players add @s coin 5`)
-            player.tell("§8[§bXSMP§8] §rYou've been awarded 5 coins!");
-            player.playSound('random.orb');
+            player.tell("§8[§bXSMP§8] §rYou've been awarded 5 coins!")
+            player.playSound('random.orb')
         }
     } else {
         const enchantmentList = mainhand.getComponent('minecraft:enchantments').enchantments
@@ -322,7 +328,7 @@ world.events.blockBreak.subscribe(data => {
         let silkTouch = false
         if(day == 'Monday') {
             Array.from(enchantmentList, (enchantment) => {
-                const { type } = enchantment;
+                const { type } = enchantment
                 if(type.id == 'silkTouch') silkTouch = true
             })
         
@@ -337,7 +343,7 @@ world.events.blockBreak.subscribe(data => {
 })
 
 world.events.playerJoin.subscribe((data) => {
-    const player = data.player;
+    const player = data.player
 
     if(!player.hasTag('toggle:welcome')) {
         new tickTimeout(() => {
@@ -351,128 +357,5 @@ world.events.playerJoin.subscribe((data) => {
                 player.playSound('random.orb')
             }
         }, 200)
-    }
-})
-
-
-system.runSchedule(() => {
-    const players = Array.from(world.getPlayers())
-    for (const player of players) {
-        if(!player.hasTag('toggle:rewards')) {
-
-            const secScore = getScore('seconds', player, true)
-            const minScore = getScore('minutes', player, true)
-            const hourScore = getScore('hours', player, true)
-    
-            player.runCommandAsync('scoreboard players add @s seconds 1')
-    
-            if(secScore >= 60) { // Is the player at 60 seconds? Add a minute and reset second score
-                player.runCommandAsync('scoreboard players add @s minutes 1')
-                player.runCommandAsync('scoreboard players set @s seconds 0')
-            }
-    
-            if(minScore >= 60) { // Is the player at 60 minutes? Add an hour, reset minute score, add coins
-                player.runCommandAsync('scoreboard players add @s hours 1')
-                player.runCommandAsync('scoreboard players set @s minutes 0')
-    
-                const weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-                const date = new Date();
-                const day = weekday[date.getDay()];
-        
-                if(day == 'Wednesday' || day == 'Sunday') {
-                    player.runCommandAsync(`scoreboard players add @s coin 50`)
-                    player.tell("§8[§bXSMP§8] §fYou've been awarded 50 coins for playing 60 minutes!");
-                    player.playSound('random.orb');
-                } else {
-                    player.runCommandAsync(`scoreboard players add @s coin 25`)
-                    player.tell("§8[§bXSMP§8] §fYou've been awarded 25 coins for playing 60 minutes!");
-                    player.playSound('random.orb');
-                }
-            }
-    
-            if(hourScore >= 168 && !player.hasTag('VIP')) { // Is the player at 7 days without the VIP tag? Add VIP tags
-                player.addTag('VIP');
-                player.tell('§8[§bXSMP§8] §fYou have spent 7 DAYS on the XSMP! You have now been given the VIP chat rank and access to the exclusive VIP lounge at Spawn. Make sure to let an Admin know so they can get your roles on the Discord as well! Now seriously go touch some grass, and the Minecraft kind does not count!!');
-                player.playSound('random.orb');
-    
-                const rankTag = player.getTags().find(tag => tag.startsWith('rank:'));
-    
-                if(rankTag) {
-                    player.removeTag(rankTag);
-                    player.addTag(`rank:§bVIP--${rankTag.split(':')[1]}`);
-                } else player.addTag('rank:§bVIP');
-            }
-
-        }
-    }
-}, 20)
-
-
-system.runSchedule(() => {
-    const players = Array.from(world.getPlayers())
-    for (const player of players) {
-
-        if(player.hasTag('toggle:sidebar')) player.onScreenDisplay.clearTitle()
-        else {
-
-            let coins = getScore('coin', player, true)
-
-            let mins = getScore('minutes', player, true)
-            let hours = getScore('hours', player, true)
-            let days = Math.floor(hours / 24)
-            
-            const times = x => f => {
-                if (x > 0) {
-                    f()
-                    times (x - 1) (f)
-                }
-            }
-    
-            times (days) (() => hours -= 24)
-
-            let online = players.length
-            let obj = world.scoreboard.getObjective('members')
-            let peak = obj.getScore(obj.getParticipants().find(part => part.displayName == "peak"))
-
-            let date = new Date()
-            let hour = date.getHours()
-            let second = date.getSeconds()
-
-            if(hour == 0 && second == 0) {
-                new tickTimeout(() => {
-                    player.runCommandAsync('scoreboard players set peak members 0')
-                    player.tell(`§8[§bXSMP§8] §rToday's peak member count has been reset.`)
-                    player.playSound('random.orb')
-                }, 20)
-            } else if(online > peak) {
-                player.runCommandAsync(`scoreboard players set peak members ${online}`)
-                player.tell(`§8[§bXSMP§8] §rToday's peak member count is now ${online}!`)
-                player.playSound('random.orb')
-            }
-
-            let events = "None"
-            let weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-            let day = weekday[date.getDay()]
-
-            let tomorrow = new Date()
-            let today = new Date()
-            tomorrow.setDate(today.getDate() + 1)
-            tomorrow.setHours(0,0,0,0)
-
-            let diffMs = (tomorrow - today)
-            let minsLeft = Math.floor((diffMs/1000)/60)
-            let hrsLeft = Math.floor(minsLeft / 60)
-
-            if(day == "Monday") events = `Mining Monday (${hrsLeft}h left)`
-            if(day == 'Wednesday' || day == "Sunday") events = `Coin Boost (${hrsLeft}h left)`
-
-            let x = player.location.x.toString().split('.')[0]
-            let z = player.location.z.toString().split('.')[0]
-            let y = player.location.y.toString().split('.')[0]
-    
-            player.onScreenDisplay.setTitle(`\n\n  §bPlayer Info§r\n  Time Played: ${days}d, ${hours}h, ${mins}m\n  Total Coins: ${coins}\n  Coords: ${x}, ${y}, ${z}\n\n\n  §bCurrent Events§r\n  ${events}\n\n\n  §bServer Info§r\n  Members Online: ${online}\n  Peak Today: ${peak}`)
-
-        }
-
     }
 })

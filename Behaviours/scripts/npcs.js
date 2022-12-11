@@ -13,6 +13,21 @@ world.events.entityHit.subscribe(data => {
     const player = data.entity
     const entity = data.hitEntity
 
+    if(entity.typeId == 'xsmp:enchantress') entity.nameTag = '§e§lEnchantress\n§r§7Click Me'
+    if(entity.typeId == 'xsmp:info') entity.nameTag = '§a§lRealm Guide\n§r§7Click Me'
+    if(entity.typeId == 'xsmp:pvparena') entity.nameTag = '§b§lPVP Arena\n§r§7Click Me'
+    if(entity.typeId == 'xsmp:cosmetics') entity.nameTag = '§d§lCosmetics\n§r§7Click Me'
+
+    if(entity.typeId == 'xsmp:biomefinder') entity.nameTag = '§6§lBiome Finder\n§r§7Click Me'
+    if(entity.typeId == 'xsmp:welcomer') entity.nameTag = '§b§lWelcome!\n§r§7Click Me'
+    if(entity.typeId == 'xsmp:marketplace' && entity.hasTag('spawnNPC')) entity.nameTag = '§d§lMarketplace\n§r§7Click Me'
+
+    if(entity.typeId == 'xsmp:santa') entity.nameTag = '§e§lSanta\n§r§7Click Me'
+    if(entity.typeId == 'xsmp:unavailable') entity.nameTag = '§7§lUnavailable'
+
+    const tags = entity.getTags().find(tag => tag.startsWith('market:'))
+    if(tags && entity.typeId == 'xsmp:marketplace' && tags.includes('~')) entity.nameTag = `${tags.split('~')[1].split('*')[0]}\n§r§7Click Me`
+
     if(entity.typeId == 'xsmp:pvparena') {
 
         player.teleport(new Location(113, 148, -448), world.getDimension('overworld'), 0, 0)

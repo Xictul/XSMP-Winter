@@ -6,4 +6,4 @@ gamerule keepinventory true
 gamerule showcoordinates false
 gamerule showbordereffect false
 gamerule doimmediaterespawn true
-gamerule dodaylightcycle false
+gamerule dodaylightcycle true

@@ -6,19 +6,23 @@
 //              /_/ \_\ |_____/  |_|  |_| |_|    
 // 
 //             -- XICTUL'S SURVIVAL MULTIPLAYER --
-//                     
+//
 
-// Scripty Stuff
-import './anticheat'
+// Event Based Code
+import './block'
 import './chat'
+import './effects'
 import './npcs'
+import './rewards'
 import './server'
-import './names'
+import './tick'
+
+// Tick Based Code
+
 
 // Stops Watchdog Error Crashes
-
 import { system } from '@minecraft/server'
- 
+
 system.events.beforeWatchdogTerminate.subscribe(event => {
     event.cancel = true
 })
