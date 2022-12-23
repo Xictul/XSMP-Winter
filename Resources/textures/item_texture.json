@@ -5,9 +5,12 @@
     "witch_hat": {
       "textures": "textures/items/witch_hat"
     },
-	  "coin": {
-	    "textures": "textures/items/coin"
-	  },
+    "santa_hat": {
+      "textures": "textures/items/santa_hat"
+    },
+    "new_years_hat": {
+      "textures": "textures/items/new_years_hat"
+    },
     "crown": {
       "textures": "textures/items/crown"
     },
@@ -22,6 +25,9 @@
     },
     "gui": {
       "textures": "textures/items/gui"
-    }
+    },
+    "coin": {
+	    "textures": "textures/items/coin"
+	  }
   }
 }

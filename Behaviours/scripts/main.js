@@ -8,21 +8,32 @@
 //             -- XICTUL'S SURVIVAL MULTIPLAYER --
 //
 
-// Event Based Code
-import './block'
-import './chat'
-import './effects'
-import './npcs'
-import './rewards'
-import './server'
-import './tick'
+// Realm System Code
+import './systems/chat_commands'
+import './systems/chat_ranks'
+import './systems/mob_protection'
+import './systems/spawn_protection'
+import './systems/one_player_sleep'
+import './systems/joins_leaves'
+import './systems/time_rewards'
+import './systems/mining_monday'
 
-// Tick Based Code
+// Anticheat Code
+import './anticheat/illegal_blocks'
+import './anticheat/illegal_enchants'
+import './anticheat/illegal_coords'
 
+// Misc Code
+import './misc/gui'
+import './misc/effects'
+import './misc/npcs'
+import './misc/sidebar'
 
-// Stops Watchdog Error Crashes
-import { system } from '@minecraft/server'
+// Cancel Watchdog Error Crash
+import { system, world } from '@minecraft/server'
+import { warnMessage } from './utils/server_messages'
 
-system.events.beforeWatchdogTerminate.subscribe(event => {
-    event.cancel = true
+system.events.beforeWatchdogTerminate.subscribe(data => {
+    data.cancel = true
+    world.getAllPlayers().forEach(player => warnMessage(player, 'XSMP Realm rebooting due to excessive server stress. You may experience a lag spike.'))
 })

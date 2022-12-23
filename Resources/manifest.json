@@ -2,17 +2,17 @@
 	"format_version": 2,
 	"header": {
 		"name": "§bXSMP Resource Pack",
-		"description": "This pack was created for XSMP Winter Edition. Have fun! [1.2.0]",
-		"uuid": "935b56f8-c61c-4640-a91b-75afd05f3033",
-		"version": [1, 2, 0],
+		"description": "This pack was created for XSMP Winter Edition. Have fun! [1.3.0]",
+		"uuid": "e25069d0-61e5-4cf5-8078-24a7e395ad1a",
+		"version": [1, 3, 0],
 		"min_engine_version": [1, 19, 1]
 	},
 	"modules": [
 		{
-			"description": "This pack was created for XSMP Winter Edition. Have fun! [1.2.0]",
+			"description": "This pack was created for XSMP Winter Edition. Have fun! [1.3.0]",
 			"type": "resources",
-			"uuid": "a4ebae1a-7f5c-49d4-ad04-5e64faa39470",
-			"version": [1, 2, 0]
+			"uuid": "316040f0-d00a-44b2-a706-8164d3e03609",
+			"version": [1, 3, 0]
 		}
 	],
 	"metadata": {

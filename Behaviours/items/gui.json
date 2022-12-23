@@ -10,7 +10,7 @@
                 "texture": "gui"
             },
             "minecraft:display_name": {
-                "value": "§l§bServer GUI\n§r§7[USE]§r"
+                "value": "§bRealm GUI§7 [Use]§r"
             },
             "minecraft:on_use": {
                 "on_use": {}

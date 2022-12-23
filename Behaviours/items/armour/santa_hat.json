@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "xsmp:santa_hat",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:armor": {
+                "texture_type": "none",
+                "protection": 0
+            },
+            "minecraft:wearable": {
+                "slot": "slot.armor.head"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.helmet"
+            },
+            "minecraft:icon": {
+                "texture": "santa_hat"
+            },
+            "minecraft:render_offsets": "helmets",
+            "minecraft:display_name": {
+                "value": "§bSanta Hat§r"
+            }
+        }
+    }
+}

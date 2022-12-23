@@ -1,41 +1,31 @@
-# XSMP Update 5.2.0
-These are the patch notes for the upcoming update - 5.2.0.
+# XSMP Update 5.3.0
+### These are the patch notes for the update - 5.3.0.
 
-## New Additions
+## Main Changes
 
-#### 1) Cosmetics
-Introducing, cosmetics! Have you ever wanted to wear a giant Top Hat or the cut off head of an innocent Shroomling? Well now you can using the new Cosmetics tab in the Realm GUI. Here are the currently available Cosmetics you can buy:
+### Upgraded UI
+The UI has been changed for all NPCs and the Realm GUI with new icons and updated textures.
 
-* The Top Hat - 250c
-* The Cake Hat - 500c
-* The Witch Hat - 750c
-* The Crown Hat - 1000c
+### Faster Scripts
+The realm scripts have been greatly optimised for less lag. Hence the realm should run a lot smoother from this update forwards. We have also implimented a warning message for if the realm is under too much stress and at risk of crashing.
 
-The Shroomling Hat has not been included in this list as we want players to go out and find them themselves. In future, we plan to add more cosmetic types but hats felt like a nice place to start.
+### NPC Changes
+NPC names now show up from longer distances and you no longer have to be directly looking at the NPCs to see their names. This should help with Spawn Navigation and better legibility.
 
-#### 2) Customised UI
-If you haven't already seen in the XSMP Discord, we've been working on a new dark-themed UI look for the realm and it's finally ready for release! It will probably be the first new thing you notice about the realm when you logon. Yes it's a bit of a change from what you're used but it looks so much cleaner, smoother, and well.. darker. We also changed up some other UI parts in minor ways for example the emote menu now has different highlights when hovering over emotes.
+### Texture Updates
+Textures for NPCs, items, blocks, and more have been updated. The more noticeable changes include the removal of glass block borders, the festive themed chests and various hats.
 
-#### 3) One Player Sleep
-We have finally, FINALLY got ourselves some One Player Sleep code in this pack so now, like the name implies, if one player sleeps it will automatically turn to day!
+### Model Changes
+Like with the textures, the models for the NPCs and hats have been tweaked a little to reduce collisions with skins in the case of hats and other parts of the model in the case of NPCs.
 
-## Changes
+### Sound Changes
+The sounds for the Shroomling, Realm Guide and more have been upped in quality slightly.
 
-#### 1) NPC Room Exits
-Exits to the NPC Rooms have now been added so you don't need to teleport out via the Realm GUI or the Realm Commands. All you need to do now is walk back out the way you came and you'll be teleported back to the main Spawn.
-
-#### 2) PVP Win Message
-A win message will now show up on screen whenever you or the person you're PVPing wins.
-
-#### 3) GUI Icons
-A few icons in the Realm GUI have been changed to better match the thing they're meant to be describing. More texture changes to the Realm GUI will be made later on to better fit the new Customised UI as well.
+### Keep Inventory
+Keep Inventory has been permanently turned off. It was never meant to be on in the first place so we are sorry for any inconveniences this may cause you.
 
 ## Bug Fixes
 
-* Realm doesn't bug out 00-01am.
-* Regeneration enchanting now works.
-* Gamemode changer is now location based instead of tag based.
-* Hostile mobs in Spawn now die every 3 seconds instead of 5.
-
-## Release Info
-The new update is planned to be released at 16:00 (4pm) UTC. If all goes to plan the realm will be back online for 16:15 (4:15pm) UTC. In the event of any disruptions, there will be an announcement on the XSMP Discord.
+* Going out of the overworld no longer constantly sets your gamemode to survival.
+* Loading into the realm and other dimensions no longer shows the Missing Texture screen while loading.
+* Lag corrections have been made with some systems in the realm scripts.

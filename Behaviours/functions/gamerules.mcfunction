@@ -2,8 +2,8 @@ gamerule commandblockoutput false
 gamerule doinsomnia false
 gamerule tntexplodes false
 gamerule falldamage false
-gamerule keepinventory true
+gamerule keepinventory false
 gamerule showcoordinates false
-gamerule showbordereffect false
+gamerule showbordereffect true
 gamerule doimmediaterespawn true
 gamerule dodaylightcycle true
